@@ -10,7 +10,6 @@ import org.joda.time.DateTime;
  */
 public class AccountDo {
 
-	String accountId;
 	
 	String uin;
 	
@@ -25,7 +24,6 @@ public class AccountDo {
 	DateTime lastUpdated;
 
 	public AccountDo(AccountCreateRequest request) {
-		this.accountId = UUID.randomUUID().toString();
 		this.uin = request.uin;
 		this.email = request.email;
 		this.password = request.password;
@@ -81,13 +79,5 @@ public class AccountDo {
 
 	public void setLastUpdated(DateTime lastUpdated) {
 		this.lastUpdated = lastUpdated;
-	}
-
-	public String getAccountId() {
-		return accountId;
-	}
-
-	public void setAccountId(String accountId) {
-		this.accountId = accountId;
 	}
 }

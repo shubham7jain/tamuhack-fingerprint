@@ -1,7 +1,6 @@
 CREATE TABLE Account
 (
-account_id varchar(40),
-uin varchar(30),
+uin varchar(30) PRIMARY KEY,
 email varchar(255),
 pass varchar(255),
 token varchar(255),

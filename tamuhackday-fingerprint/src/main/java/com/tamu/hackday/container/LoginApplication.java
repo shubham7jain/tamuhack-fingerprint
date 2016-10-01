@@ -1,6 +1,7 @@
 package com.tamu.hackday.container;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.tamu.hackday.container.exceptionMapper.LoginExceptionMapper;
 import com.tamu.hackday.container.resources.LoginResource;
 
 import io.dropwizard.Application;
@@ -18,6 +19,8 @@ public class LoginApplication extends Application<LoginConfiguration> {
 
 		environment.getObjectMapper().setPropertyNamingStrategy(
 		        PropertyNamingStrategy.CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES);
+		
+		environment.jersey().register(new LoginExceptionMapper());
 	}
 
 	@Override
