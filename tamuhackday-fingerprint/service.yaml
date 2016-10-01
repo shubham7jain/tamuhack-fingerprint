@@ -1,0 +1,26 @@
+server:
+    applicationConnectors:
+      - type: http
+        port: 25118
+    adminConnectors:
+      - type: http
+        port: 25119
+    maxThreads: 1000
+    gzip:
+        enabled: false
+    requestLog:
+        timeZone: Asia/Kolkata
+        appenders:
+            - type: file
+              currentLogFilename: /var/log/tamu/hackday/access.log
+              archivedLogFilenamePattern: /var/log/tamu/hackday/access.%d.log
+              archivedFileCount: 5
+logging:
+    level: INFO
+    appenders:
+        - type: file
+          threshold: ALL
+          timeZone: Asia/Kolkata
+          currentLogFilename: /var/log/tamu/hackday/service.log
+          archivedLogFilenamePattern: /var/log/hackday/tamu/test.%d.log
+          archivedFileCount: 5
