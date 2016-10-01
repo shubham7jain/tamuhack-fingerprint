@@ -1,21 +1,24 @@
 package com.tamu.hackday.core.db.api;
 
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
+import javax.sql.DataSource;
+
 import com.tamu.hackday.core.constants.LoginConstants.TableNames;
 import com.tamu.hackday.core.entities.AccountDo;
+import com.tamu.hackday.core.utils.Helper;
 
 public class LoginDbManager implements ILoginDbManager {
 
 	public void createAccount(AccountDo accountDo) throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
 		java.sql.Connection conn = null;
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:port/LoginDetails","root", "");
-		conn.close();
+		
+		DataSource dataSource = Helper.getDataSource("master");
 
+		conn = dataSource.getConnection();
 		// Create sql to add to database
 		String sql = "INSERT INTO " + TableNames.account + " (account_id, uin, email,"
 				+ "pass, token, "

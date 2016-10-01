@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 public class AccountCreateRequest implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	String uin;
 	
 	String email;
@@ -11,6 +16,10 @@ public class AccountCreateRequest implements Serializable {
 	String password;
 	
 	String token;
+	
+	public AccountCreateRequest() {
+		
+	}
 	
 	public AccountCreateRequest(String uin, String email, String password, String token) {
 		this.uin = uin;

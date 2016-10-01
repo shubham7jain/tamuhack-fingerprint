@@ -1,6 +1,5 @@
 package com.tamu.hackday.core.entities;
 
-import java.util.Random;
 import java.util.UUID;
 
 import org.joda.time.DateTime;
