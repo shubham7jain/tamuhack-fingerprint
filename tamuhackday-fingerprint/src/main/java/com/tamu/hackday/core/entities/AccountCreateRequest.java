@@ -15,17 +15,14 @@ public class AccountCreateRequest implements Serializable {
 	
 	String password;
 	
-	String token;
-	
 	public AccountCreateRequest() {
 		
 	}
 	
-	public AccountCreateRequest(String uin, String email, String password, String token) {
+	public AccountCreateRequest(String uin, String email, String password) {
 		this.uin = uin;
 		this.email = email;
 		this.password = password;
-		this.token = token;
 	}
 
 	public String getUin() {
@@ -50,13 +47,5 @@ public class AccountCreateRequest implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
 	}
 }

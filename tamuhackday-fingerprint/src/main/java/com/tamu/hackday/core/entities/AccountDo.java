@@ -27,7 +27,7 @@ public class AccountDo {
 		this.uin = request.uin;
 		this.email = request.email;
 		this.password = request.password;
-		this.token = request.password;
+		this.token = UUID.randomUUID().toString();
 		
 		this.creationTime = new DateTime();
 		this.lastUpdated = new DateTime();

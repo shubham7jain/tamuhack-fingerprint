@@ -66,6 +66,28 @@ public class LoginDbManager implements ILoginDbManager {
 		}
 	}
 	
+	public LoginResponse findByUin(String uin) throws ClassNotFoundException, SQLException, LoginException {
+		Class.forName("com.mysql.jdbc.Driver");
+		java.sql.Connection conn = null;
+		
+		DataSource dataSource = Helper.getDataSource("master");
+
+		conn = dataSource.getConnection();
+		
+		String sql = "SELECT uin from " + TableNames.account + " where uin = ?;"; 
+		PreparedStatement preparedStatement = conn.prepareStatement(sql);
+		preparedStatement.setString(1, uin);
+		
+		ResultSet rs = preparedStatement.executeQuery();
+		
+		
+		if(rs.next()) {
+			return new LoginResponse(uin);
+		} else {
+			return null;
+		}
+	}
+	
 	public LoginResponse authenticateByToken(String tokenId) throws SQLException, ClassNotFoundException, LoginException {
         Class.forName("com.mysql.jdbc.Driver");
         java.sql.Connection conn = null;

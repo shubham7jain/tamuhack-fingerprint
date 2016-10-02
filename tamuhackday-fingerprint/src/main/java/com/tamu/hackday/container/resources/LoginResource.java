@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.tamu.hackday.container.exception.LoginException;
 import com.tamu.hackday.core.entities.AccountCreateRequest;
+import com.tamu.hackday.core.entities.AccountCreateResponse;
 import com.tamu.hackday.core.entities.AccountLoginRequest;
 import com.tamu.hackday.core.entities.LoginResponse;
 import com.tamu.hackday.core.service.LoginService;
@@ -29,8 +30,8 @@ public class LoginResource {
 	
 	@POST
 	@Path("/")
-	public void createAccount(AccountCreateRequest accountCreateRequest) throws ClassNotFoundException, SQLException {
-		loginService.createAccount(accountCreateRequest);
+	public AccountCreateResponse createAccount(AccountCreateRequest accountCreateRequest) throws ClassNotFoundException, SQLException, LoginException {
+		return loginService.createAccount(accountCreateRequest);
 	}
 	
 	@POST
